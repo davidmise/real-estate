@@ -62,7 +62,7 @@
 <body>
     <div class="container mt-5">
         <!-- Your page content here -->
-        <h1>Welcome to My Website</h1>
+        <h1>Welcome to admin dashboard</h1>
         <p>Scroll down to see the animated icon</p>
         <div style="height: 2000px;"></div>
     </div>
