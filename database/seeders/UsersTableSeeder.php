@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=> 'Agent',
                 'username' => 'agent',
-                'email'=> 'agemt@gmail.com',
+                'email'=> 'agent@gmail.com',
                 'password'=> Hash::make('111'),
                 'role' =>'agent',
                 'status'=> 'active',
