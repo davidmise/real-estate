@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//Admin Group Middleware 
+//Admin Group Middleware
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])
     ->name('admin.dashboard');
@@ -42,11 +42,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])
     ->name('admin.profile');
-    
+
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])
+    ->name('admin.profile');
+
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])
+    ->name('admin.profile.store');
+
+
 }); //end Group Admin Middleware
 
 
-//Agent Group Middleware 
+//Agent Group Middleware
 Route::middleware(['auth', 'role:agent'])->group(function () {
     Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name
         ('agent.dashboard');
