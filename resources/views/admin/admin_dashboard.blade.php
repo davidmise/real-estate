@@ -38,9 +38,10 @@ License: For each use you must have a valid license purchased only from above li
 	<link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
 	<!-- endinject -->
 
-  <!-- Layout styles -->  
+  <!-- Layout styles -->
 	<link rel="stylesheet" href="{{ asset('backend/assets/css/demo2/style.css') }}">
   <!-- End layout styles -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
     <link rel="shortcut icon" href="{{ asset('../assets/images/favicon.png') }}" />
 </head>
@@ -49,7 +50,7 @@ License: For each use you must have a valid license purchased only from above li
                 <!-- partial:partials/_sidebar.html -->
         @include('admin.body.sidebar')
                 <!-- partial -->
-            
+
         <div class="page-wrapper">
                     <!-- partial:partials/_navbar.html -->
 
@@ -58,7 +59,7 @@ License: For each use you must have a valid license purchased only from above li
                  @yield('admin')
                     <!-- partial:partials/_footer.html -->
                  @include('admin.body.footer')
-                   
+
                     <!-- partial -->
         </div>
     </div>
@@ -81,5 +82,30 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
         <!-- End custom js for this page -->
 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break;
+ }
+ @endif
+</script>
+
 </body>
-</html>    
+</html>
